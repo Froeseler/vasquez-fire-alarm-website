@@ -1,0 +1,15 @@
+# Materiais originais e privados enviados pelo cliente
+client_material/
+
+# Segredos e configuracoes locais
+.env
+config_local.py
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>Vasquez Fire Alarm</title>
+  <defs>
+    <linearGradient id="blue" x1="15" y1="12" x2="114" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3158ca"/>
+      <stop offset="1" stop-color="#1e3da1"/>
+    </linearGradient>
+    <linearGradient id="red" x1="42" y1="29" x2="86" y2="97" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f24147"/>
+      <stop offset="1" stop-color="#e7181e"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="27" fill="#0a0a0a"/>
+  <path d="M64 11 116 64 64 117 12 64z" fill="url(#blue)"/>
+  <path d="M64 19 108 64 64 109 20 64z" fill="#f6f6f6"/>
+  <path d="m70 26-30 42h20l-8 34 37-50H68z" fill="url(#red)"/>
+  <path d="m70 26-30 42h20l-8 34" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="2" opacity=".32"/>
+</svg>

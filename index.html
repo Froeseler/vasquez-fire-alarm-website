@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vasquez Fire Alarm | Life Safety Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon_vasquez.svg">
+
+  <style>
+    :root {
+      --ink: #07111c;
+      --panel: #102032;
+      --panel-2: #142b42;
+      --red: #ee493d;
+      --red-dark: #c9332b;
+      --cream: #f5f2eb;
+      --muted: #b5c2d0;
+      --line: rgba(255, 255, 255, .14);
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+      background: var(--ink);
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1160px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", Arial, sans-serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 7vw, 6.4rem);
+      letter-spacing: -.065em;
+      max-width: 900px;
+      margin: 18px 0 24px;
+    }
+
+    h2 {
+      font-size: clamp(2.35rem, 4.5vw, 4.2rem);
+      letter-spacing: -.05em;
+      margin: 14px 0 22px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    p { color: var(--muted); }
+
+    .btn {
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 23px;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #ff5c50; }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.45);
+      background: transparent;
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .btn.copied {
+      background: #2f9d5d;
+      border-color: #2f9d5d;
+      color: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(7, 17, 28, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .brand img {
+      display: block;
+      width: 300px;
+      max-height: 248px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: #dce4ed;
+      font-size: .96rem;
+      font-weight: 700;
+    }
+
+    nav a:hover { color: var(--red); }
+
+    .hero {
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 80px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(238, 73, 61, .22), transparent 25%),
+        radial-gradient(circle at 25% 70%, rgba(57, 118, 166, .2), transparent 30%);
+    }
+
+    .hero p {
+      max-width: 710px;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .facts {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0b1724;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fact {
+      padding: 34px 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact:last-child { border-right: 0; }
+
+    .fact strong {
+      display: block;
+      color: #fff;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.8rem;
+    }
+
+    .fact span { color: var(--muted); font-size: 1rem; }
+
+    section { padding: 110px 0; }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 78px;
+      align-items: center;
+    }
+
+    .about p { font-size: 1.1rem; margin-top: 16px; }
+
+    .image-frame {
+      min-height: 395px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(140deg, var(--panel-2), #1e3f5d);
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 395px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services { background: var(--cream); color: var(--ink); }
+
+    .services p { color: #56616c; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 46px;
+    }
+
+    .service {
+      background: #fff;
+      border: 1px solid #e2e0da;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .service-number {
+      color: var(--red);
+      display: block;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      padding: 110px 0;
+      text-align: center;
+      background: linear-gradient(120deg, var(--red-dark), var(--red));
+    }
+
+    .quote p {
+      color: #fff;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: 1.18;
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-card {
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+    }
+
+    .contact-card p { margin: 12px 0 26px; }
+
+    .phone {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      body { font-size: 17px; }
+
+      .shell { width: min(100% - 32px, 1160px); }
+
+      .nav { min-height: 72px; }
+
+      .brand img { width: 128px; }
+
+      nav { display: none; }
+
+      .hero {
+        min-height: 670px;
+        padding: 86px 0 65px;
+      }
+
+      h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
+
+      .hero p { font-size: 1.08rem; }
+
+      .facts-grid,
+      .about,
+      .services-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child { border-bottom: 0; }
+
+      section { padding: 76px 0; }
+
+      .about { gap: 38px; }
+
+      .image-frame,
+      .image-frame img { min-height: 270px; }
+
+      .contact { gap: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#home" aria-label="Vasquez Fire Alarm home">
+        <img src="logo_vasquez.svg" alt="Vasquez Fire Alarm">
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="shell">
+        <span class="eyebrow">Serving New England since 2018</span>
+        <h1>Every alarm. Every life. Protected.</h1>
+        <p>
+          Professional fire alarm inspections, testing, maintenance, repairs,
+          and system support for businesses across Massachusetts, New England,
+          Maine, and surrounding areas.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Request Service</a>
+          <a class="btn btn-outline" href="#services">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts">
+      <div class="shell facts-grid">
+        <div class="fact">
+          <strong>Since 2018</strong>
+          <span>Committed to safety and reliability</span>
+        </div>
+        <div class="fact">
+          <strong>6 Professionals</strong>
+          <span>A dedicated and experienced team</span>
+        </div>
+        <div class="fact">
+          <strong>New England</strong>
+          <span>Regional service when your project needs it</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell about">
+        <div>
+          <span class="eyebrow">Our History</span>
+          <h2>Reliable life-safety support, built on service.</h2>
+          <p>
+            Established in 2018 and based in Framingham, Massachusetts,
+            Vasquez Fire Alarm provides professional fire alarm solutions with
+            a strong commitment to safety, reliability, and customer satisfaction.
+          </p>
+          <p>
+            From inspections and testing to maintenance, repairs, and system
+            support, our goal is to help protect people, properties, and businesses.
+          </p>
+        </div>
+
+        <div class="image-frame">
+          <img src="van-vasquez.jpg" alt="Vasquez Fire Alarm service vehicle">
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="shell">
+        <span class="eyebrow">What We Do</span>
+        <h2>Fire alarm services that keep your systems ready.</h2>
+
+        <div class="services-grid">
+          <article class="service">
+            <span class="service-number">01</span>
+            <h3>Inspections</h3>
+            <p>Detailed inspections to help keep your fire alarm systems compliant, dependable, and ready.</p>
+          </article>
+
+          <article class="service">
+            <span class="service-number">02</span>
+            <h3>Testing</h3>
+            <p>Professional system testing focused on performance, safety, and operational confidence.</p>
+          </article>
+
+          <article class="service">
+            <span class="service-number">03</span>
+            <h3>Maintenance</h3>
+            <p>Preventive maintenance that helps protect your investment and reduce unexpected issues.</p>
+          </article>
+
+          <article class="service">
+            <span class="service-number">04</span>
+            <h3>Repairs & Support</h3>
+            <p>Dependable assistance for repairs, troubleshooting, service needs, and system support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="shell">
+        <p>“Your Safety. Our Priority. Every Alarm Matters.”</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell contact">
+        <div>
+          <span class="eyebrow">Contact Vasquez</span>
+          <h2>Let’s talk about your fire alarm service needs.</h2>
+          <p>
+            Reach out to discuss inspections, testing, maintenance, repairs,
+            or support for your property or project.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Vasquez Fire Alarm</h3>
+          <p>Framingham, Massachusetts<br>Serving New England and surrounding areas.</p>
+
+          <a class="phone" href="tel:+15082708444">(508) 270-8444</a>
+
+          <button class="btn btn-outline copy-phone" type="button" data-phone="508-270-8444">
+            Copy Phone Number
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span>© 2026 Vasquez Fire Alarm. All rights reserved.</span>
+      <span>Framingham, Massachusetts</span>
+    </div>
+  </footer>
+
+  <script>
+    const copyButton = document.querySelector(".copy-phone");
+
+    copyButton.addEventListener("click", async () => {
+      const phone = copyButton.dataset.phone;
+      const originalText = copyButton.textContent;
+
+      try {
+        await navigator.clipboard.writeText(phone);
+        copyButton.textContent = "Phone Number Copied!";
+        copyButton.classList.add("copied");
+      } catch (error) {
+        copyButton.textContent = "Copy: " + phone;
+      }
+
+      setTimeout(() => {
+        copyButton.textContent = originalText;
+        copyButton.classList.remove("copied");
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
