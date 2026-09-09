@@ -251,6 +251,10 @@
       padding: 32px;
     }
 
+    .service-featured {
+      grid-column: 1 / -1;
+    }
+
     .service-number {
       color: var(--red);
       display: block;
@@ -291,14 +295,47 @@
 
     .contact-card p { margin: 12px 0 26px; }
 
-    .phone {
+    .phone,
+    .email {
       display: block;
       font-family: "Manrope", sans-serif;
-      font-size: 1.6rem;
       font-weight: 800;
       color: #fff;
+    }
+
+    .phone {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .email {
+      width: fit-content;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      color: var(--red);
+      font-size: 1.08rem;
       margin-bottom: 24px;
     }
+
+    .phone:hover,
+    .email:hover,
+    .footer-email:hover {
+      text-decoration: underline;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .footer-email { color: #fff; }
 
     footer {
       border-top: 1px solid var(--line);
@@ -417,7 +454,7 @@
   <main>
     <section class="hero" id="home">
       <div class="shell">
-        <span class="eyebrow">Serving New England since 2018</span>
+        <span class="eyebrow">Serving New England since 2014</span>
         <h1>Every alarm. Every life. Protected.</h1>
         <p>
           Professional fire alarm inspections, testing, maintenance, repairs,
@@ -435,7 +472,7 @@
     <section class="facts">
       <div class="shell facts-grid">
         <div class="fact">
-          <strong>Since 2018</strong>
+          <strong>Since 2014</strong>
           <span>Committed to safety and reliability</span>
         </div>
         <div class="fact">
@@ -455,7 +492,7 @@
           <span class="eyebrow">Our History</span>
           <h2>Reliable life-safety support, built on service.</h2>
           <p>
-            Established in 2018 and based in Framingham, Massachusetts,
+            Established in 2014 and based in Framingham, Massachusetts,
             Vasquez Fire Alarm provides professional fire alarm solutions with
             a strong commitment to safety, reliability, and customer satisfaction.
           </p>
@@ -500,6 +537,12 @@
             <h3>Repairs & Support</h3>
             <p>Dependable assistance for repairs, troubleshooting, service needs, and system support.</p>
           </article>
+
+          <article class="service service-featured">
+            <span class="service-number">05</span>
+            <h3>New Installations</h3>
+            <p>Professional installation of new fire alarm systems, including equipment placement, wiring, device installation, system configuration, testing, and final commissioning for new construction and renovation projects.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -526,10 +569,16 @@
           <p>Framingham, Massachusetts<br>Serving New England and surrounding areas.</p>
 
           <a class="phone" href="tel:+15082708444">(508) 270-8444</a>
+          <a class="email" href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
 
-          <button class="btn btn-outline copy-phone" type="button" data-phone="508-270-8444">
-            Copy Phone Number
-          </button>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:pavelvasquezelectrician@gmail.com?subject=Fire%20Alarm%20Service%20Request">
+              Email
+            </a>
+            <button class="btn btn-outline copy-phone" type="button" data-phone="508-270-8444">
+              Copy Phone Number
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -537,7 +586,10 @@
 
   <footer>
     <div class="shell footer-inner">
-      <span>© 2026 Vasquez Fire Alarm. All rights reserved. · Framingham, Massachusetts</span>
+      <div class="footer-copy">
+        <span>© 2026 Vasquez Fire Alarm. All rights reserved. · Framingham, Massachusetts</span>
+        <a class="footer-email" href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
+      </div>
 
       <div class="social-links" aria-label="Vasquez Fire Alarm social media">
         <!-- Replace # with the real Instagram profile URL -->
