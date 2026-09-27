@@ -1,13 +1,5 @@
 # Vasquez Fire Alarm
 
-## Materiais do cliente
-
-Guarde fotos originais, documentos, logos e observacoes recebidos do cliente em `client_material/`.
-Essa pasta e local e nao deve ser enviada ao GitHub.
-
-Imagens que serao exibidas no site devem ser selecionadas e otimizadas antes de serem colocadas em `static/images/`.
-# Vasquez Fire Alarm
-
 Professional, responsive website for **Vasquez Fire Alarm**, a life-safety services company based in Framingham, Massachusetts.
 
 > **Your Safety. Our Priority. Every Alarm Matters.**
@@ -22,11 +14,13 @@ This website presents Vasquez Fire Alarm's core services, company history, and c
 - System testing
 - Preventive maintenance
 - Repairs and technical support
+- New installations
 
 ## Features
 
 - Fully responsive design for desktop, tablet, and mobile
 - Clear service, company history, and contact sections
+- Compact header and accessible mobile navigation
 - Accessible typography and high-contrast visual design
 - Click-to-call contact number
 - Copy-to-clipboard phone button
@@ -46,6 +40,11 @@ This website presents Vasquez Fire Alarm's core services, company history, and c
 .
 ├── index.html
 ├── favicon_vasquez.svg
-├── logo_vasquez.svg
+├── logo_vasquez.png
 ├── van-vasquez.jpg
 └── README.md
+```
+
+## Client materials
+
+Keep original client photographs, documents, and notes in a local `client_material/` directory. Select and optimize approved images before publishing them with the site.
