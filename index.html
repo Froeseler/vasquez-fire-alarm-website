@@ -3,631 +3,360 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vasquez Fire Alarm | Life Safety Solutions</title>
+  <meta name="theme-color" content="#a7222a">
+  <meta name="description" content="Fire alarm inspections, testing, maintenance, repairs, and new installations from Vasquez Fire Alarm in Framingham, Massachusetts. Serving New England since 2014.">
+  <title>Vasquez Fire Alarm | Fire Alarm Services in New England</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon_vasquez.svg">
 
   <style>
     :root {
-      --ink: #07111c;
-      --panel: #102032;
-      --panel-2: #142b42;
-      --red: #ee493d;
-      --red-dark: #c9332b;
-      --cream: #f5f2eb;
-      --muted: #b5c2d0;
-      --line: rgba(255, 255, 255, .14);
+      --navy: #0b1828;
+      --navy-light: #14263a;
+      --red: #d83239;
+      --red-deep: #a7222a;
+      --paper: #f6f4ef;
+      --white: #fff;
+      --ink: #142133;
+      --muted: #586779;
+      --border: #dedfdc;
+      --shell: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; }
-
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: "DM Sans", Arial, sans-serif;
-      background: var(--ink);
-      color: #fff;
-      font-size: 18px;
-      line-height: 1.65;
-    }
-
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 "DM Sans", Arial, sans-serif; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid #ffd46b; outline-offset: 4px; }
+    [id] { scroll-margin-top: 96px; }
+    .shell { width: min(var(--shell), calc(100% - 48px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: 16px; top: -70px; z-index: 100; padding: 10px 16px; background: var(--white); color: var(--ink); }
+    .skip-link:focus { top: 10px; }
 
-    .shell {
-      width: min(1160px, calc(100% - 48px));
-      margin: auto;
-    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Manrope", Arial, sans-serif; line-height: 1.12; }
+    h1 { font-size: clamp(3.1rem, 5.5vw, 5.6rem); letter-spacing: -.065em; margin-bottom: 25px; }
+    h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); letter-spacing: -.052em; margin-bottom: 22px; }
+    h3 { font-size: 1.32rem; letter-spacing: -.025em; margin-bottom: 12px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; color: var(--red-deep); font: 800 .78rem/1.3 "Manrope", sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+    .eyebrow-light { color: #ff7b7b; }
+    .section-intro { max-width: 700px; color: var(--muted); font-size: 1.07rem; }
 
-    .eyebrow {
-      color: var(--red);
-      font-size: .9rem;
-      font-weight: 800;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 53px; padding: 12px 22px; border: 1px solid transparent; border-radius: 6px; font-size: .97rem; font-weight: 700; line-height: 1.35; cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-red { background: var(--red); color: var(--white); }
+    .button-red:hover { background: #b72931; }
+    .button-outline { border-color: rgba(255,255,255,.45); color: var(--white); background: transparent; }
+    .button-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+    .button-light { background: var(--white); color: var(--red-deep); }
+    .button-light:hover { background: #f4e7e7; }
 
-    h1, h2, h3 {
-      font-family: "Manrope", Arial, sans-serif;
-      line-height: 1.08;
-    }
+    .site-header { position: sticky; top: 0; z-index: 30; background: var(--red-deep); color: var(--white); box-shadow: 0 8px 24px rgba(4,13,23,.15); }
+    .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: 0; font-family: "Manrope", Arial, sans-serif; line-height: 1.05; }
+    .brand-mark { width: 45px; height: 45px; flex: none; border-radius: 7px; }
+    .brand-name { display: grid; gap: 2px; font-size: 1.24rem; font-weight: 800; letter-spacing: -.04em; text-transform: uppercase; }
+    .brand-name small { font-size: .69rem; font-weight: 700; letter-spacing: .22em; }
+    .site-nav { display: flex; align-items: center; gap: 31px; font-size: .91rem; font-weight: 700; }
+    .site-nav a:not(.nav-contact) { padding: 12px 0; }
+    .site-nav a:not(.nav-contact):hover { text-decoration: underline; text-underline-offset: 6px; }
+    .nav-contact { padding: 10px 17px; border-radius: 5px; background: var(--white); color: var(--red-deep); }
+    .nav-contact:hover { background: #f4e7e7; }
+    .menu-toggle { display: none; align-items: center; gap: 9px; min-height: 44px; padding: 8px; border: 1px solid rgba(255,255,255,.5); border-radius: 5px; background: transparent; color: var(--white); font-weight: 700; cursor: pointer; }
+    .menu-icon { position: relative; display: block; width: 20px; height: 14px; border-block: 2px solid currentColor; }
+    .menu-icon::after { position: absolute; top: 5px; left: 0; width: 20px; border-top: 2px solid currentColor; content: ""; }
 
-    h1 {
-      font-size: clamp(3.1rem, 7vw, 6.4rem);
-      letter-spacing: -.065em;
-      max-width: 900px;
-      margin: 18px 0 24px;
-    }
+    .hero { position: relative; overflow: hidden; padding: 92px 0 98px; background: var(--navy); color: var(--white); }
+    .hero::before { position: absolute; inset: 0; background: radial-gradient(circle at 10% 20%, rgba(54,109,153,.13), transparent 36%), radial-gradient(circle at 95% 80%, rgba(216,50,57,.12), transparent 34%); content: ""; pointer-events: none; }
+    .hero-inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); align-items: center; gap: clamp(38px, 6vw, 94px); }
+    .hero-copy { padding-bottom: 7px; }
+    .hero h1 { max-width: 720px; margin-top: 23px; }
+    .hero h1 em { color: #ff746f; font-style: normal; }
+    .hero-copy > p { max-width: 575px; margin-bottom: 31px; color: #cad4df; font-size: 1.13rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-phone { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; color: #dfe6eb; font-size: .96rem; }
+    .hero-phone strong { color: var(--white); }
+    .hero-phone:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+    .hero-phone svg { flex: none; width: 18px; height: 18px; fill: currentColor; color: #ff746f; }
+    .hero-media { position: relative; margin: 0; padding: 12px 12px 26px 0; }
+    .hero-media::after { position: absolute; right: 0; bottom: 12px; left: 14px; height: 28px; border-radius: 0 0 10px 10px; background: var(--red); content: ""; }
+    .hero-media img { position: relative; z-index: 1; width: 100%; aspect-ratio: 1.11; border-radius: 9px; object-fit: cover; object-position: center; box-shadow: 0 28px 48px rgba(0,0,0,.26); }
+    .media-label { position: absolute; z-index: 2; right: -11px; bottom: 52px; max-width: 195px; padding: 15px 18px; border-radius: 5px; background: var(--white); box-shadow: 0 15px 25px rgba(0,0,0,.17); color: var(--ink); font: 700 .91rem/1.35 "Manrope", sans-serif; }
+    .media-label::before { display: block; width: 25px; height: 3px; margin-bottom: 9px; background: var(--red); content: ""; }
 
-    h2 {
-      font-size: clamp(2.35rem, 4.5vw, 4.2rem);
-      letter-spacing: -.05em;
-      margin: 14px 0 22px;
-    }
-
-    h3 {
-      font-size: 1.45rem;
-      margin-bottom: 10px;
-    }
-
-    p { color: var(--muted); }
-
-    .btn {
-      border: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 23px;
-      border-radius: 8px;
-      font: inherit;
-      font-size: 1rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .btn:hover { transform: translateY(-3px); }
-
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
-    }
-
-    .btn-primary:hover { background: #ff5c50; }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.45);
-      background: transparent;
-      color: #fff;
-    }
-
-    .btn-outline:hover {
-      background: #fff;
-      color: var(--ink);
-    }
-
-    .btn.copied {
-      background: #2f9d5d;
-      border-color: #2f9d5d;
-      color: #fff;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(219, 2, 3,1);
-      border-bottom: 3px solid var(--red);
-      box-shadow: 0 4px 18px rgba(7, 17, 28, .14);
-    }
-
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      width: min(380px, 70vw);
-    }
-
-    .brand img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      object-position: left center;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      color: #1e3da1;
-      font-size: .96rem;
-      font-weight: 700;
-    }
-
-    nav a:hover { color: var(--red); }
-
-    .hero {
-      min-height: 760px;
-      display: flex;
-      align-items: center;
-      padding: 100px 0 80px;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(238, 73, 61, .22), transparent 25%),
-        radial-gradient(circle at 25% 70%, rgba(57, 118, 166, .2), transparent 30%);
-    }
-
-    .hero p {
-      max-width: 710px;
-      font-size: 1.2rem;
-      line-height: 1.75;
-      margin-bottom: 34px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .facts {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #0b1724;
-    }
-
-    .facts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .fact {
-      padding: 34px 28px;
-      border-right: 1px solid var(--line);
-    }
-
+    .facts { background: #101f31; color: var(--white); }
+    .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .fact { padding: 30px 26px; border-right: 1px solid rgba(255,255,255,.14); }
+    .fact:first-child { padding-left: 0; }
     .fact:last-child { border-right: 0; }
+    .fact strong { display: block; margin-bottom: 4px; font: 800 1.22rem/1.3 "Manrope", sans-serif; }
+    .fact span { color: #b6c4d1; font-size: .9rem; }
 
-    .fact strong {
-      display: block;
-      color: #fff;
-      font-family: "Manrope", sans-serif;
-      font-size: 1.8rem;
-    }
+    .services { padding: 114px 0 120px; background: var(--paper); }
+    .services h2 { max-width: 830px; margin-top: 20px; }
+    .services-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 17px; margin-top: 46px; }
+    .service-card { grid-column: span 2; min-height: 270px; padding: 31px 30px 29px; border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: 7px; background: var(--white); transition: box-shadow .2s, transform .2s; }
+    .service-card:nth-child(n+4) { grid-column: span 3; min-height: 242px; }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 18px 32px rgba(20,33,51,.09); }
+    .service-number { display: block; margin-bottom: 42px; color: var(--red-deep); font: 800 .83rem/1 "Manrope", sans-serif; letter-spacing: .11em; }
+    .service-card:nth-child(n+4) .service-number { margin-bottom: 27px; }
+    .service-card p { max-width: 440px; margin-bottom: 0; color: var(--muted); font-size: .96rem; }
 
-    .fact span { color: var(--muted); font-size: 1rem; }
+    .about-section { padding: 112px 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(50px, 10vw, 145px); align-items: center; }
+    .about-aside { position: relative; min-height: 390px; display: flex; flex-direction: column; justify-content: space-between; padding: 42px; overflow: hidden; border-radius: 8px; background: var(--navy-light); color: var(--white); }
+    .about-aside::before { position: absolute; top: -155px; right: -170px; width: 430px; height: 430px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; content: ""; box-shadow: 0 0 0 65px rgba(255,255,255,.025), 0 0 0 130px rgba(255,255,255,.025); }
+    .about-aside img { position: relative; width: 67px; height: 67px; border-radius: 11px; }
+    .about-aside p { position: relative; max-width: 350px; margin: 0; font: 700 clamp(1.55rem, 2.4vw, 2.25rem)/1.25 "Manrope", sans-serif; letter-spacing: -.035em; }
+    .about-aside p span { color: #ff817e; }
+    .about-copy h2 { margin-top: 20px; }
+    .about-copy p { max-width: 610px; color: var(--muted); font-size: 1.04rem; }
+    .about-copy p:last-child { margin-bottom: 0; }
 
-    section { padding: 110px 0; }
+    .promise { padding: 76px 0; background: var(--red-deep); color: var(--white); text-align: center; }
+    .promise p { max-width: 940px; margin: 0 auto; font: 800 clamp(1.9rem, 3.8vw, 3.5rem)/1.2 "Manrope", sans-serif; letter-spacing: -.05em; }
 
-    .about {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 78px;
-      align-items: center;
-    }
+    .contact-section { padding: 112px 0 120px; background: var(--navy); color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(44px, 8vw, 110px); align-items: center; }
+    .contact-copy h2 { margin-top: 20px; }
+    .contact-copy > p { max-width: 560px; color: #bdc9d5; font-size: 1.08rem; }
+    .contact-card { padding: 39px; border-radius: 8px; background: var(--white); color: var(--ink); }
+    .contact-card .eyebrow { margin-bottom: 18px; }
+    .contact-card h3 { font-size: 1.62rem; }
+    .contact-card > p { margin-bottom: 26px; color: var(--muted); }
+    .contact-detail { display: block; width: fit-content; max-width: 100%; margin-bottom: 12px; font: 800 clamp(1.05rem, 2vw, 1.42rem)/1.35 "Manrope", sans-serif; overflow-wrap: anywhere; }
+    .contact-detail:hover { color: var(--red-deep); text-decoration: underline; text-underline-offset: 4px; }
+    .contact-email { font-size: .95rem; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 29px; }
+    .copy-button { background: transparent; border-color: #c5cbd1; color: var(--ink); }
+    .copy-button:hover { background: #f2f4f6; }
+    .copy-button.copied { border-color: #377a4b; color: #286138; }
 
-    .about p { font-size: 1.1rem; margin-top: 16px; }
+    .site-footer { padding: 29px 0; border-top: 1px solid rgba(255,255,255,.15); background: var(--navy); color: #aebbc8; font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 12px 25px; }
+    .footer-inner p { margin: 0; }
+    .footer-inner a { color: var(--white); }
+    .footer-inner a:hover { text-decoration: underline; }
 
-    .image-frame {
-      min-height: 395px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: linear-gradient(140deg, var(--panel-2), #1e3f5d);
-      border: 1px solid rgba(255,255,255,.13);
-    }
-
-    .image-frame img {
-      width: 100%;
-      height: 100%;
-      min-height: 395px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .services { background: var(--cream); color: var(--ink); }
-
-    .services p { color: #56616c; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 46px;
-    }
-
-    .service {
-      background: #fff;
-      border: 1px solid #e2e0da;
-      border-radius: 12px;
-      padding: 32px;
-    }
-
-    .service-featured {
-      grid-column: 1 / -1;
-    }
-
-    .service-number {
-      color: var(--red);
-      display: block;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .quote {
-      padding: 110px 0;
-      text-align: center;
-      background: linear-gradient(120deg, var(--red-dark), var(--red));
-    }
-
-    .quote p {
-      color: #fff;
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(2rem, 4vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -.05em;
-      line-height: 1.18;
-      max-width: 980px;
-      margin: auto;
-    }
-
-    .contact {
-      display: grid;
-      grid-template-columns: 1fr .9fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .contact-card {
-      padding: 38px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--panel);
-    }
-
-    .contact-card p { margin: 12px 0 26px; }
-
-    .phone,
-    .email {
-      display: block;
-      font-family: "Manrope", sans-serif;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .phone {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
-    .email {
-      width: fit-content;
-      max-width: 100%;
-      overflow-wrap: anywhere;
-      color: var(--red);
-      font-size: 1.08rem;
-      margin-bottom: 24px;
-    }
-
-    .phone:hover,
-    .email:hover,
-    .footer-email:hover {
-      text-decoration: underline;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .footer-email { color: #fff; }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 34px 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .social-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      color: #fff;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
-    }
-
-    .social-links a:hover {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
-      transform: translateY(-3px);
-    }
-
-    .social-links svg {
-      width: 19px;
-      height: 19px;
-      fill: currentColor;
+    @media (max-width: 940px) {
+      .hero-inner { gap: 36px; }
+      h1 { font-size: clamp(2.8rem, 5.4vw, 4.5rem); }
+      .media-label { right: -5px; }
+      .service-card { padding-inline: 24px; }
+      .about-grid { gap: 52px; }
     }
 
     @media (max-width: 720px) {
-      body { font-size: 17px; }
-
-      .shell { width: min(100% - 32px, 1160px); }
-
-      .nav { min-height: 72px; }
-
-      .brand {
-        width: min(280px, 68vw);
-      }
-
-      nav { display: none; }
-
-      .hero {
-        min-height: 670px;
-        padding: 86px 0 65px;
-      }
-
-      h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
-
-      .hero p { font-size: 1.08rem; }
-
-      .facts-grid,
-      .about,
-      .services-grid,
-      .contact {
-        grid-template-columns: 1fr;
-      }
-
-      .fact {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
+      body { font-size: 16px; }
+      .shell { width: min(var(--shell), calc(100% - 36px)); }
+      [id] { scroll-margin-top: 79px; }
+      .header-inner { min-height: 68px; }
+      .brand-mark { width: 39px; height: 39px; }
+      .brand-name { font-size: 1.05rem; }
+      .brand-name small { font-size: .58rem; }
+      .menu-toggle { display: inline-flex; }
+      .site-nav { position: absolute; top: 100%; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 19px; background: var(--red-deep); border-top: 1px solid rgba(255,255,255,.2); box-shadow: 0 15px 24px rgba(4,13,23,.2); }
+      .site-nav.is-open { display: flex; }
+      .site-nav a:not(.nav-contact) { padding: 12px 3px; }
+      .nav-contact { width: fit-content; margin-top: 10px; }
+      .hero { padding: 68px 0 73px; }
+      .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-inner { gap: 41px; }
+      .hero h1 { margin-top: 19px; }
+      .hero-copy > p { font-size: 1.05rem; }
+      .hero-media { width: min(100% - 10px, 560px); }
+      .hero-media img { aspect-ratio: 1.3; }
+      .media-label { right: -9px; bottom: 47px; }
+      .facts-grid { grid-template-columns: 1fr; }
+      .fact, .fact:first-child { padding: 22px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
       .fact:last-child { border-bottom: 0; }
+      .services, .about-section, .contact-section { padding: 78px 0 84px; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 35px; }
+      .service-card, .service-card:nth-child(n+4) { grid-column: span 1; min-height: 0; }
+      .service-number, .service-card:nth-child(n+4) .service-number { margin-bottom: 32px; }
+      .about-grid { gap: 38px; }
+      .about-aside { min-height: 300px; }
+      .promise { padding: 62px 0; }
+      .contact-grid { gap: 33px; }
+    }
 
-      section { padding: 76px 0; }
+    @media (max-width: 540px) {
+      h1 { font-size: clamp(2.65rem, 11vw, 3.9rem); }
+      h2 { font-size: clamp(2.05rem, 9vw, 3rem); }
+      .hero-actions .button { width: 100%; }
+      .hero-media img { aspect-ratio: 1.15; }
+      .media-label { max-width: 155px; padding: 11px 13px; font-size: .78rem; }
+      .services-grid { grid-template-columns: 1fr; gap: 12px; }
+      .service-card { padding: 26px; }
+      .service-number, .service-card:nth-child(n+4) .service-number { margin-bottom: 24px; }
+      .about-aside { padding: 32px; }
+      .contact-card { padding: 29px 24px; }
+      .contact-actions .button { width: 100%; }
+    }
 
-      .about { gap: 38px; }
-
-      .image-frame,
-      .image-frame img { min-height: 270px; }
-
-      .contact { gap: 30px; }
-
-      .footer-inner {
-        justify-content: center;
-        text-align: center;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="shell nav">
-      <a class="brand" href="#home" aria-label="Vasquez Fire Alarm home">
-        <img src="logo_vasquez.png" alt="Vasquez Fire Alarm">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="Vasquez Fire Alarm — home">
+        <img class="brand-mark" src="favicon_vasquez.svg" width="45" height="45" alt="">
+        <span class="brand-name">Vasquez<small>Fire Alarm</small></span>
       </a>
-
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="menu-icon" aria-hidden="true"></span><span>Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a class="nav-contact" href="#contact">Contact us</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="shell">
-        <span class="eyebrow">Serving New England since 2014</span>
-        <h1>Every alarm. Every life. Protected.</h1>
-        <p>
-          Professional fire alarm inspections, testing, maintenance, repairs,
-          and system support for businesses across Massachusetts, New England,
-          Maine, and surrounding areas.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="#contact">Request Service</a>
-          <a class="btn btn-outline" href="#services">Explore Services</a>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow eyebrow-light">Serving New England since 2014</span>
+          <h1 id="hero-heading">Every alarm. Every life. <em>Protected.</em></h1>
+          <p>Fire alarm inspections, testing, maintenance, repairs, and new installations for businesses and properties across New England.</p>
+          <div class="hero-actions">
+            <a class="button button-red" href="#contact">Request service <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#services">Explore services</a>
+          </div>
+          <a class="hero-phone" href="tel:+15082708444">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.5c.4-.5 1-.7 1.6-.5l3 1c.7.2 1.1.9 1 1.6l-.5 3c-.1.5-.5.9-1 1.1l-1.6.6a15.2 15.2 0 0 0 5.6 5.6l.6-1.6c.2-.5.6-.9 1.1-1l3-.5c.7-.1 1.4.3 1.6 1l1 3c.2.6 0 1.2-.5 1.6l-1.8 1.5c-.5.4-1.2.6-1.8.5C9.4 21.6 2.4 14.6 1.5 6.1c-.1-.6.1-1.3.5-1.8l1.5-1.8z"/></svg>
+            Prefer to call? <strong>(508) 270-8444</strong>
+          </a>
         </div>
+        <figure class="hero-media">
+          <img src="van-vasquez.jpg" width="1195" height="896" alt="Illustration of a Vasquez service vehicle" fetchpriority="high">
+          <figcaption class="media-label">Based in Framingham, Massachusetts</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="facts">
+    <div class="facts" aria-label="Company information">
       <div class="shell facts-grid">
-        <div class="fact">
-          <strong>Since 2014</strong>
-          <span>Committed to safety and reliability</span>
-        </div>
-        <div class="fact">
-          <strong>6 Professionals</strong>
-          <span>A dedicated and experienced team</span>
-        </div>
-        <div class="fact">
-          <strong>New England</strong>
-          <span>Regional service when your project needs it</span>
-        </div>
+        <div class="fact"><strong>Since 2014</strong><span>Serving customers for over a decade</span></div>
+        <div class="fact"><strong>Framingham, MA</strong><span>Our home base in Massachusetts</span></div>
+        <div class="fact"><strong>New England</strong><span>Fire alarm service across the region</span></div>
       </div>
-    </section>
+    </div>
 
-    <section id="about">
-      <div class="shell about">
-        <div>
-          <span class="eyebrow">Our History</span>
-          <h2>Reliable life-safety support, built on service.</h2>
-          <p>
-            Established in 2014 and based in Framingham, Massachusetts,
-            Vasquez Fire Alarm provides professional fire alarm solutions with
-            a strong commitment to safety, reliability, and customer satisfaction.
-          </p>
-          <p>
-            From inspections and testing to maintenance, repairs, and system
-            support, our goal is to help protect people, properties, and businesses.
-          </p>
-        </div>
-
-        <div class="image-frame">
-          <img src="van-vasquez.jpg" alt="Vasquez Fire Alarm service vehicle">
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
+    <section class="services" id="services" aria-labelledby="services-heading">
       <div class="shell">
-        <span class="eyebrow">What We Do</span>
-        <h2>Fire alarm services that keep your systems ready.</h2>
-
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-heading">Support for every stage of your fire alarm system.</h2>
+        <p class="section-intro">From a new installation to ongoing care, find the service your property needs.</p>
         <div class="services-grid">
-          <article class="service">
-            <span class="service-number">01</span>
-            <h3>Inspections</h3>
-            <p>Detailed inspections to help keep your fire alarm systems compliant, dependable, and ready.</p>
-          </article>
-
-          <article class="service">
-            <span class="service-number">02</span>
-            <h3>Testing</h3>
-            <p>Professional system testing focused on performance, safety, and operational confidence.</p>
-          </article>
-
-          <article class="service">
-            <span class="service-number">03</span>
-            <h3>Maintenance</h3>
-            <p>Preventive maintenance that helps protect your investment and reduce unexpected issues.</p>
-          </article>
-
-          <article class="service">
-            <span class="service-number">04</span>
-            <h3>Repairs & Support</h3>
-            <p>Dependable assistance for repairs, troubleshooting, service needs, and system support.</p>
-          </article>
-
-          <article class="service service-featured">
-            <span class="service-number">05</span>
-            <h3>New Installations</h3>
-            <p>Professional installation of new fire alarm systems, including equipment placement, wiring, device installation, system configuration, testing, and final commissioning for new construction and renovation projects.</p>
-          </article>
+          <article class="service-card"><span class="service-number">01 / INSPECT</span><h3>Inspections</h3><p>Detailed inspections to help keep your fire alarm systems compliant, dependable, and ready.</p></article>
+          <article class="service-card"><span class="service-number">02 / VERIFY</span><h3>Testing</h3><p>System testing focused on performance, safety, and operational confidence.</p></article>
+          <article class="service-card"><span class="service-number">03 / MAINTAIN</span><h3>Maintenance</h3><p>Preventive maintenance to help protect your investment and reduce unexpected issues.</p></article>
+          <article class="service-card"><span class="service-number">04 / RESTORE</span><h3>Repairs &amp; support</h3><p>Assistance with troubleshooting, repairs, and ongoing system support.</p></article>
+          <article class="service-card"><span class="service-number">05 / BUILD</span><h3>New installations</h3><p>Installation for new construction and renovation projects, from equipment and wiring to testing and final commissioning.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="quote">
-      <div class="shell">
-        <p>“Your Safety. Our Priority. Every Alarm Matters.”</p>
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="shell about-grid">
+        <div class="about-aside">
+          <img src="favicon_vasquez.svg" width="67" height="67" alt="">
+          <p>Focused on the systems that <span>help protect</span> people and property.</p>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">About Vasquez</span>
+          <h2 id="about-heading">Life-safety service built on attention to detail.</h2>
+          <p>Established in 2014 and based in Framingham, Massachusetts, Vasquez Fire Alarm provides professional fire alarm solutions with a commitment to safety, reliability, and customer service.</p>
+          <p>We work with customers on inspections, testing, maintenance, repairs, new installations, and system support throughout New England.</p>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="shell contact">
-        <div>
-          <span class="eyebrow">Contact Vasquez</span>
-          <h2>Let’s talk about your fire alarm service needs.</h2>
-          <p>
-            Reach out to discuss inspections, testing, maintenance, repairs,
-            or support for your property or project.
-          </p>
-        </div>
+    <section class="promise" aria-label="Our commitment">
+      <div class="shell"><p>Your Safety. Our Priority. Every Alarm Matters.</p></div>
+    </section>
 
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="shell contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow eyebrow-light">Get in touch</span>
+          <h2 id="contact-heading">Let’s talk about your fire alarm needs.</h2>
+          <p>Reach out to discuss service for your property or your next project. Call us directly or send an email with a few details about what you need.</p>
+        </div>
         <div class="contact-card">
+          <span class="eyebrow">Contact details</span>
           <h3>Vasquez Fire Alarm</h3>
-          <p>Framingham, Massachusetts<br>Serving New England and surrounding areas.</p>
-
-          <a class="phone" href="tel:+15082708444">(508) 270-8444</a>
-          <a class="email" href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
-
+          <p>Framingham, Massachusetts<br>Serving New England.</p>
+          <a class="contact-detail" href="tel:+15082708444">(508) 270-8444</a>
+          <a class="contact-detail contact-email" href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:pavelvasquezelectrician@gmail.com?subject=Fire%20Alarm%20Service%20Request">
-              Email Us
-            </a>
-            <button class="btn btn-outline copy-phone" type="button" data-phone="508-270-8444">
-              Copy Phone Number
-            </button>
+            <a class="button button-red" href="mailto:pavelvasquezelectrician@gmail.com?subject=Fire%20Alarm%20Service%20Request">Email us</a>
+            <button class="button copy-button" type="button" data-phone="508-270-8444">Copy phone number</button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="shell footer-inner">
-      <div class="footer-copy">
-        <span>© 2026 Vasquez Fire Alarm. All rights reserved. · Framingham, Massachusetts</span>
-        <a class="footer-email" href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
-      </div>
-
-      <div class="social-links" aria-label="Vasquez Fire Alarm social media">
-        <!-- Replace # with the real Instagram profile URL -->
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow Vasquez Fire Alarm on Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 6.8A5.2 5.2 0 1 1 6.8 12 5.2 5.2 0 0 1 12 6.8Zm0 2A3.2 3.2 0 1 0 15.2 12 3.2 3.2 0 0 0 12 8.8Z"/></svg>
-        </a>
-
-        <!-- Replace # with the real Facebook profile URL -->
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow Vasquez Fire Alarm on Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 22v-8.2h2.75l.42-3.2H13.7V8.55c0-.93.26-1.56 1.6-1.56H17V4.13A22.6 22.6 0 0 0 14.55 4c-2.43 0-4.1 1.48-4.1 4.2v2.4H7.7v3.2h2.75V22h3.25Z"/></svg>
-        </a>
-
-        <!-- Replace # with the real LinkedIn profile URL -->
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow Vasquez Fire Alarm on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.1 3.5A1.9 1.9 0 1 1 5.1 7.3a1.9 1.9 0 0 1 0-3.8ZM3.5 8.8h3.2V20H3.5V8.8Zm5.2 0h3.07v1.53h.04c.43-.81 1.47-1.67 3.03-1.67 3.24 0 3.84 2.13 3.84 4.9V20h-3.2v-5.68c0-1.36-.03-3.1-1.89-3.1-1.9 0-2.19 1.48-2.19 3V20H8.7V8.8Z"/></svg>
-        </a>
-      </div>
+      <p>© 2026 Vasquez Fire Alarm · Framingham, Massachusetts</p>
+      <a href="mailto:pavelvasquezelectrician@gmail.com">pavelvasquezelectrician@gmail.com</a>
     </div>
   </footer>
 
   <script>
-    const copyButton = document.querySelector(".copy-phone");
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    const copyButton = document.querySelector('.copy-button');
 
-    copyButton.addEventListener("click", async () => {
-      const phone = copyButton.dataset.phone;
-      const originalText = copyButton.textContent;
+    function closeMenu() {
+      siteNav.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    }
 
-      try {
-        await navigator.clipboard.writeText(phone);
-        copyButton.textContent = "Phone Number Copied!";
-        copyButton.classList.add("copied");
-      } catch (error) {
-        copyButton.textContent = "Copy: " + phone;
+    menuToggle.addEventListener('click', () => {
+      const open = siteNav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && siteNav.classList.contains('is-open')) {
+        closeMenu();
+        menuToggle.focus();
       }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) closeMenu();
+    });
 
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copyButton.dataset.phone);
+        copyButton.textContent = 'Number copied';
+        copyButton.classList.add('copied');
+      } catch {
+        copyButton.textContent = `Call ${copyButton.dataset.phone}`;
+      }
       setTimeout(() => {
-        copyButton.textContent = originalText;
-        copyButton.classList.remove("copied");
+        copyButton.textContent = 'Copy phone number';
+        copyButton.classList.remove('copied');
       }, 2500);
     });
   </script>
